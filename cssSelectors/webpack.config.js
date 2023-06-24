@@ -10,8 +10,9 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'CSS Selectors',
+      template: path.resolve(__dirname, './src/index.html'),
       favicon: './src/favicon.ico',
+      filename: 'index.html',
     }),
   ],
   output: {
