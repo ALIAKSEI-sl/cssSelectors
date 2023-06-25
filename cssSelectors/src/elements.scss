@@ -1,0 +1,175 @@
+@keyframes disappear {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: -320px;
+  }
+}
+
+@keyframes oscillation {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-10px);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  75% {
+    transform: translateX(10px);
+  }
+  10% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes disappear {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: -320px;
+  }
+}
+
+my-plate {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  border-bottom: solid 5px #ddd;
+  background: white;
+  border-radius: 100px;
+  border-radius: 100px;
+  box-shadow: 0px 8px 0px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+my-plate::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: calc(50% - 32px);
+  top: calc(50% - 32px);
+  height: 65px;
+  width: 65px;
+  border-radius: 60px;
+  border-top: solid 6px #ccc;
+  opacity: 0.4;
+  background: rgba(255, 255, 255, 1);
+}
+
+my-plate#elegant::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: calc(50% - 47px);
+  top: calc(50% - 44px);
+  height: 68px;
+  width: 74px;
+  border-radius: 60px;
+  border: solid 10px #009ff2;
+  opacity: 0.4;
+}
+
+my-plate:hover {
+  outline: 4px solid rgba(255, 255, 255, 0.8);
+}
+
+my-bento {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  background: brown;
+  border: solid 3px #711c12;
+  border-width: 20px 2px;
+  box-shadow: 0px 8px 0px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+my-bento::before {
+  content: '';
+  position: absolute;
+  width: calc(100%);
+  top: 0;
+  left: 0;
+  border: solid 10px rgba(0, 0, 0, 0.1);
+  border-width: 10px 0 0 0px;
+}
+
+my-bento:hover {
+  outline: 4px solid rgba(207, 84, 84, 0.8);
+}
+
+my-apple,
+my-orange {
+  width: 60px;
+  border-radius: 100px;
+  border-style: solid;
+  border-width: 2px 4px 15px 4px;
+  height: 60px;
+  position: relative;
+  box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.2);
+  display: block;
+}
+
+my-apple {
+  background: #e41919;
+  border-color: #ab1212;
+}
+
+my-orange {
+  background: orange;
+  border-color: #bd6e07;
+}
+
+my-apple::before,
+my-orange::before {
+  content: '';
+  display: block;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.3);
+  height: 30%;
+  width: 30%;
+  top: 0px;
+  left: calc(50% - 15%);
+  border-radius: 100px;
+}
+
+my-apple.small,
+my-orange.small {
+  width: 30px;
+  height: 30px;
+  border-radius: 100px;
+  border-width: 2px 4px 8px 4px;
+}
+
+my-pickle {
+  background: #179837;
+  width: 25px;
+  height: 60px;
+  border-radius: 30px;
+  display: block;
+  border: solid 2px #025a18;
+  border-width: 2px 2px 9px 2px;
+  box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.tablecloth .disappear {
+  animation-name: disappear;
+  animation-iteration-count: 1;
+  animation-duration: 0.6s;
+}
+
+.tablecloth .oscillation,
+.ide-container.oscillation {
+  animation-name: oscillation;
+  animation-iteration-count: 5;
+  animation-duration: 0.1s;
+}
