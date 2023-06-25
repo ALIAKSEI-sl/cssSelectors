@@ -17,6 +17,12 @@
   }
 }
 
+@keyframes blink {
+  50% {
+    background: none;
+  }
+}
+
 $darkColor: #8d8d8c;
 $mainColor: #221e18;
 
@@ -79,17 +85,27 @@ body {
 .table-body {
   width: 500px;
   height: 0;
+  position: relative;
   padding-bottom: 130px;
-  background-color: #eece67;
+  background-color: #ac741c;
   transform: perspective(200px) rotateX(10deg);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.tablecloth {
+  position: absolute;
+  top: calc(50% - (110px / 2));
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 0 auto;
 }
 
 .table-edge {
   width: 522px;
   height: 0;
   padding-bottom: 15px;
-  background-color: #eece67;
+  background-color: #ac741c;
   transform: perspective(100px) rotateX(-10deg);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
@@ -101,8 +117,12 @@ body {
   .table-leg {
     width: 300px;
     height: 25px;
-    background-color: #eece67;
+    background-color: #ac741c;
   }
+}
+
+.shake {
+  animation: shake 1s infinite;
 }
 
 .ide-section {
@@ -156,7 +176,8 @@ body {
 .input-selector {
   width: calc(100% - 50px);
   border: none;
-  background: #efefef;
+  background: rgba(62, 203, 255, 0.3);
+  animation: blink 0.5s infinite;
 }
 
 .input-selector:focus {
