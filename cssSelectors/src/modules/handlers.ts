@@ -17,8 +17,13 @@ export default function inputHandler(input: HTMLInputElement, params: IParams) {
       if (value === params.answer) {
         elements.forEach((elem) => elem.classList.add('disappear'));
         elements[elements.length - 1].addEventListener('animationend', () => {
-          params.level++;
-          installLevel(params);
+          if (params.level === 12) {
+            params.level = 1;
+            installLevel(params);
+          } else {
+            params.level++;
+            installLevel(params);
+          }
         });
       } else if (elements.length) {
         elements.forEach((elem) => elem.classList.add('oscillation'));

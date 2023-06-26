@@ -14,7 +14,7 @@ export interface ILevelStore {
   twelve: () => ILevel;
 }
 
-interface ILevel {
+export interface ILevel {
   case: string;
   level: string;
   selectorName: string;
@@ -25,4 +25,5 @@ interface ILevel {
   exampleSecond: string;
   tableInner: string;
   answer: string;
+  ideInner: string;
 }

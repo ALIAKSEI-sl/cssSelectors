@@ -6,6 +6,7 @@ module.exports = {
   devServer: {
     static: './dist',
     port: 3000,
+    hot: true,
   },
 
   plugins: [

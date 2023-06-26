@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 @keyframes shake {
   0% {
     transform: skew(5deg, 0deg) scaleX(1);
@@ -23,17 +25,20 @@
   }
 }
 
-$darkColor: #8d8d8c;
-$mainColor: #221e18;
+$backgroundColor: #2e2a23;
+$textColor: rgba(255, 255, 255, 0.3);
+$blackColor: rgba(0, 0, 0, 0.35);
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 
 body {
-  background-color: #6b6969;
+  background-color: $backgroundColor;
+  color: $textColor;
 }
 
 .wrapper {
@@ -65,7 +70,6 @@ body {
   }
 
   .logo-header {
-    color: $mainColor;
     line-height: 32px;
   }
 }
@@ -74,6 +78,10 @@ body {
   font-size: 40px;
   text-align: center;
   padding: 20px 0;
+}
+
+.header-help {
+  text-align: center;
 }
 
 .table-wrapper {
@@ -131,28 +139,41 @@ body {
 
 .ide-container {
   display: flex;
-  border: 5px solid $mainColor;
+  flex-direction: column;
+  border: 10px solid $blackColor;
   margin: 0 auto;
   width: 100%;
-  color: #aaa;
+  color: $blackColor;
 }
 
 .sidebar-menu {
   flex: 0 0 370px;
   height: 100vh;
-  background-color: $mainColor;
 }
 
-.css-editor,
-.html-viewer {
-  width: 50%;
+.ide-header {
+  display: flex;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.ide-window {
+  display: flex;
 }
 
 .header-editor {
   display: flex;
-  padding: 10px 10px;
+  width: 50%;
+  padding: 10px 15px;
   justify-content: space-between;
   background: rgba(0, 0, 0, 0.15);
+}
+
+.header-editor p:first-child {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.header-editor p:last-child {
+  color: $textColor;
 }
 
 .window-editor {
@@ -160,7 +181,25 @@ body {
   padding: 10px 10px 10px 46px;
   min-height: 496px;
   line-height: 150%;
+  width: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.windows-css {
   background: #efefef;
+
+  .editor-numeration {
+    background: #ddd;
+  }
+}
+
+.windows-html {
+  background: rgba(0, 0, 0, 0.3);
+  color: $textColor;
+
+  .editor-numeration {
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+  }
 }
 
 .editor-numeration {
@@ -169,7 +208,6 @@ body {
   top: 0;
   padding: 10px;
   text-align: right;
-  background: #ddd;
   height: 100%;
 }
 
@@ -201,7 +239,6 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 40px;
-  color: $mainColor;
   font-size: 20px;
 
   .rsschool-link {
@@ -224,7 +261,6 @@ body {
 }
 
 .sidebar-menu {
-  color: $darkColor;
   padding: 20px;
 }
 
@@ -240,7 +276,7 @@ body {
   width: 12px;
   height: 20px;
   display: inline-block;
-  border: solid 3px $darkColor;
+  border: solid 3px $textColor;
   border-width: 0 4px 4px 0;
   transform: rotate(40deg);
   margin-left: 10px;
@@ -267,7 +303,7 @@ body {
   height: 18px;
   width: 18px;
   position: absolute;
-  border: solid 2px $darkColor;
+  border: solid 2px $textColor;
   border-width: 2px 2px 0 0;
   transform-origin: center center;
   top: 6px;
@@ -281,7 +317,7 @@ body {
   height: 18px;
   width: 18px;
   position: absolute;
-  border: solid 2px $darkColor;
+  border: solid 2px $textColor;
   border-width: 2px 2px 0 0;
   transform-origin: center center;
   top: 6px;
@@ -301,7 +337,7 @@ body {
 .level-menu {
   width: 100%;
   height: 2px;
-  background: $darkColor;
+  background: $textColor;
   position: relative;
   top: 10px;
 }
@@ -311,7 +347,7 @@ body {
   content: '';
   width: 100%;
   height: 2px;
-  background: $darkColor;
+  background: $textColor;
   top: -10px;
 }
 
@@ -320,8 +356,12 @@ body {
   content: '';
   width: 100%;
   height: 2px;
-  background: $darkColor;
+  background: $textColor;
   top: 10px;
+}
+
+.markup div {
+  padding-left: 20px;
 }
 
 ::-webkit-scrollbar {
@@ -334,4 +374,9 @@ body {
 
 ::-webkit-scrollbar-thumb {
   background-color: #e6e5e5; /* Цвет ползунка */
+}
+
+.outlined,
+.outlined * {
+  outline: 5px solid #f00;
 }

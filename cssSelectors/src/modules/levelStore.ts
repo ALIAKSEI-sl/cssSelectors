@@ -1,9 +1,10 @@
+import { IdeInner } from '../enum/ideInner';
 import { LevelNumber } from '../enum/levelNumber';
 import { TableInner } from '../enum/tableInner';
-import { ILevelStore } from '../models/levelStore.model';
+import { ILevel, ILevelStore } from '../models/levelStore.model';
 
 class LevelStore implements ILevelStore {
-  getLevel(num: number) {
+  getLevel(num: number): ILevel {
     return this[LevelNumber[num] as keyof this]();
   }
 
@@ -19,6 +20,7 @@ class LevelStore implements ILevelStore {
       exampleSecond: '<strong>p</strong> selects all <tag>p</tag> elements.',
       answer: 'my-plate',
       tableInner: TableInner.one,
+      ideInner: IdeInner.one,
     };
   }
 
@@ -34,6 +36,7 @@ class LevelStore implements ILevelStore {
       exampleSecond: '<strong>p</strong> selects all <tag>p</tag> elements.',
       answer: 'my-bento',
       tableInner: TableInner.two,
+      ideInner: IdeInner.two,
     };
   }
 
@@ -50,6 +53,7 @@ class LevelStore implements ILevelStore {
       exampleSecond: '<strong>ul#long</strong> selects <tag>ul id="long"</tag>',
       answer: '#elegant',
       tableInner: TableInner.three,
+      ideInner: IdeInner.three,
     };
   }
 
@@ -67,6 +71,7 @@ class LevelStore implements ILevelStore {
         '<strong>#fancy&nbsp;&nbsp;span</strong> selects any <tag>span</tag> elements that are inside of the element with <strong>id="fancy"</strong>',
       answer: 'my-plate my-apple',
       tableInner: TableInner.four,
+      ideInner: IdeInner.four,
     };
   }
 
@@ -83,6 +88,7 @@ class LevelStore implements ILevelStore {
       exampleSecond: '',
       answer: '#elegant my-pickle',
       tableInner: TableInner.five,
+      ideInner: IdeInner.five,
     };
   }
 
@@ -99,6 +105,7 @@ class LevelStore implements ILevelStore {
       exampleSecond: '',
       answer: '.small',
       tableInner: TableInner.six,
+      ideInner: IdeInner.six,
     };
   }
 
@@ -116,6 +123,7 @@ class LevelStore implements ILevelStore {
         '<strong>#big.wide</strong> selects all elements with <strong>id="big"</strong> that also have <strong>class="wide"</strong>',
       answer: 'my-orange.small',
       tableInner: TableInner.seven,
+      ideInner: IdeInner.seven,
     };
   }
 
@@ -131,6 +139,7 @@ class LevelStore implements ILevelStore {
       exampleSecond: '',
       answer: 'my-bento my-orange.small',
       tableInner: TableInner.eight,
+      ideInner: IdeInner.eight,
     };
   }
 
@@ -148,6 +157,7 @@ class LevelStore implements ILevelStore {
         '<strong>a, p, div</strong> selects all <tag>a</tag>, <tag>p</tag> and <tag>div</tag> elements',
       answer: 'my-plate, my-bento',
       tableInner: TableInner.nine,
+      ideInner: IdeInner.nine,
     };
   }
 
@@ -164,6 +174,7 @@ class LevelStore implements ILevelStore {
       exampleSecond: '',
       answer: '*',
       tableInner: TableInner.ten,
+      ideInner: IdeInner.ten,
     };
   }
 
@@ -181,6 +192,7 @@ class LevelStore implements ILevelStore {
         '<strong>ul.fancy *</strong> selects every element inside all <tag>ul class="fancy"</tag> elements.',
       answer: 'my-plate *',
       tableInner: TableInner.eleven,
+      ideInner: IdeInner.eleven,
     };
   }
 
@@ -198,6 +210,7 @@ class LevelStore implements ILevelStore {
         '<strong>div + a</strong> selects every <tag>a</tag> element that directly follows a <tag>div</tag>',
       answer: 'my-plate + my-apple',
       tableInner: TableInner.twelve,
+      ideInner: IdeInner.twelve,
     };
   }
 }
