@@ -4,6 +4,7 @@ import installLevel from './installLevel';
 
 const ide = getElement('.ide-container');
 const tableCloth = getElement('.tablecloth');
+const burger = getElement('.burger-menu');
 
 export default function inputHandler(input: HTMLInputElement, params: IParams) {
   const value = input.value.trim();
@@ -17,6 +18,7 @@ export default function inputHandler(input: HTMLInputElement, params: IParams) {
       if (value === params.answer) {
         elements.forEach((elem) => elem.classList.add('disappear'));
         elements[elements.length - 1].addEventListener('animationend', () => {
+          params.completion[params.level] = true;
           if (params.level === 12) {
             params.level = 1;
             installLevel(params);
@@ -25,6 +27,10 @@ export default function inputHandler(input: HTMLInputElement, params: IParams) {
             installLevel(params);
           }
         });
+        const ticks = Array.from(
+          burger?.querySelectorAll('.tick') as NodeListOf<Element>
+        );
+        ticks[params.level - 1].classList.add('completed');
       } else if (elements.length) {
         elements.forEach((elem) => elem.classList.add('oscillation'));
         elements[elements.length - 1].addEventListener('animationend', () => {

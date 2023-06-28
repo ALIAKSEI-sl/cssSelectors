@@ -1,5 +1,6 @@
 import { IParams } from '../models/params.model';
 import { getAllElement, getElement } from './helpers';
+import highlightElements from './highlightElements ';
 import level from './levelStore';
 
 const headerCase = getElement('.header-case');
@@ -10,6 +11,8 @@ const syntax = getElement('.syntax');
 const hint = getElement('.hint');
 const examples = getAllElement('.examples');
 const tableCloth = getElement('.tablecloth');
+const htmlIde = getElement('.markup');
+const tick = getElement('.tick');
 
 export default function installLevel(params: IParams) {
   const data = level.getLevel(params.level);
@@ -25,4 +28,10 @@ export default function installLevel(params: IParams) {
     examples[1].innerHTML = data.exampleSecond;
   }
   if (tableCloth) tableCloth.innerHTML = data.tableInner;
+  if (htmlIde) htmlIde.innerHTML = data.ideInner;
+
+  if (params.completion[params.level]) tick?.classList.add('completed');
+  else tick?.classList.remove('completed');
+
+  highlightElements();
 }

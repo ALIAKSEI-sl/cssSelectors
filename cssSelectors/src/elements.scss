@@ -75,10 +75,6 @@ my-plate#elegant::after {
   opacity: 0.4;
 }
 
-my-plate:hover {
-  outline: 4px solid rgba(255, 255, 255, 0.8);
-}
-
 my-bento {
   width: 100px;
   height: 100px;
@@ -100,10 +96,6 @@ my-bento::before {
   left: 0;
   border: solid 10px rgba(0, 0, 0, 0.1);
   border-width: 10px 0 0 0px;
-}
-
-my-bento:hover {
-  outline: 4px solid rgba(207, 84, 84, 0.8);
 }
 
 my-apple,
@@ -172,4 +164,13 @@ my-pickle {
   animation-name: oscillation;
   animation-iteration-count: 5;
   animation-duration: 0.1s;
+}
+
+.level-item {
+  list-style-type: none;
+  cursor: pointer;
+}
+
+.level-item.current {
+  background: rgba(255, 255, 255, 0.07);
 }
