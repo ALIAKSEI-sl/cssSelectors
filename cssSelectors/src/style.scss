@@ -90,6 +90,7 @@ body {
 
 .header-help {
   text-align: center;
+  cursor: pointer;
 }
 
 .table-wrapper {
@@ -99,22 +100,33 @@ body {
 }
 
 .table-body {
-  width: 500px;
-  height: 0;
   position: relative;
-  padding-bottom: 130px;
-  background-color: #ac741c;
-  transform: perspective(200px) rotateX(10deg);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  // // width: 500px;
+  // // height: 0;
+  // position: relative;
+  // padding-bottom: 130px;
+  // background-color: #ac741c;
+  // transform: perspective(200px) rotateX(10deg);
+  // box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .tablecloth {
-  position: absolute;
-  top: calc(50% - (110px / 2));
+  // position: absolute;
+  // top: calc(50% - (110px / 2));
   display: flex;
   align-items: center;
+  // justify-content: center;
+  // align-content: center;
   gap: 20px;
   margin: 0 auto;
+  position: relative;
+  padding: 30px 30px;
+  background-color: #ac741c;
+  transform: perspective(200px) rotateX(10deg);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  // transform: translate3d(0, 0, 50px) rotateX(10deg);
+  // perspective: 200px;
+  // transform: rotateX(10deg);
 
   .outlined,
   .outlined * {
@@ -122,25 +134,25 @@ body {
   }
 }
 
-.table-edge {
-  width: 522px;
-  height: 0;
-  padding-bottom: 15px;
-  background-color: #ac741c;
-  transform: perspective(100px) rotateX(-10deg);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-}
+// .table-edge {
+//   // width: 522px;
+//   height: 0;
+//   padding-bottom: 15px;
+//   background-color: #ac741c;
+//   transform: perspective(200px) rotateX(10deg);
+//   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+// }
 
-.table-edge {
-  display: flex;
-  justify-content: space-between;
+// .table-edge {
+//   display: flex;
+//   justify-content: space-between;
 
-  .table-leg {
-    width: 300px;
-    height: 25px;
-    background-color: #ac741c;
-  }
-}
+//   .table-leg {
+//     // width: 300px;
+//     height: 25px;
+//     background-color: #ac741c;
+//   }
+// }
 
 .shake {
   animation: shake 1s infinite;
@@ -440,4 +452,42 @@ body {
 
 .burger-menu.open {
   left: 0;
+}
+
+.popup-wrapper {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup {
+  border: 2px solid white;
+  border-radius: 10px;
+}
+
+.text-completion {
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  padding: 30px;
+}
+
+.completion-button {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px 0;
+}
+
+.button-ok,
+.button-reset {
+  width: 120px;
+  height: 40px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 5px;
 }

@@ -9,6 +9,7 @@ const previous = getElement('.previous-level');
 const next = getElement('.next-level');
 const menuBtn = getElement('.level-menu-wrapper');
 const burger = getElement('.burger-menu');
+const help = getElement('.header-help');
 
 export default function addListener(params: IParams) {
   previous?.addEventListener('click', () => {
@@ -36,7 +37,7 @@ export default function addListener(params: IParams) {
     }
   });
 
-  menuBtn?.addEventListener('click', (event) => {
+  menuBtn?.addEventListener('click', () => {
     burger?.classList.toggle('open');
     menuBtn?.classList.toggle('open');
     const currentLevelItem = burger?.querySelector(
@@ -51,5 +52,17 @@ export default function addListener(params: IParams) {
 
   window.addEventListener('beforeunload', () => {
     localStorage.setItem('levelParams', JSON.stringify(params));
+  });
+
+  help?.addEventListener('click', () => {
+    let count = 0;
+    const typing = setInterval(() => {
+      input.value += params.answer.charAt(count);
+      count++;
+      if (count === params.answer.length) {
+        clearInterval(typing);
+      }
+    }, 400);
+    params.hint[params.level] = true;
   });
 }

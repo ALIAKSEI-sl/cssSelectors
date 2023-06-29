@@ -27,10 +27,16 @@ export default function inputHandler(input: HTMLInputElement, params: IParams) {
             installLevel(params);
           }
         });
-        const ticks = Array.from(
-          burger?.querySelectorAll('.tick') as NodeListOf<Element>
+        const levelItem = Array.from(
+          burger?.querySelectorAll('.level-item') as NodeListOf<Element>
         );
-        ticks[params.level - 1].classList.add('completed');
+        Array.from(levelItem[params.level - 1].children).forEach((elem) => {
+          if (elem.classList.contains('tick')) elem.classList.add('completed');
+          else if (elem.classList.contains('use-hint')) {
+            elem.textContent = 'a hint was used';
+          }
+        });
+        // ticks[params.level - 1].classList.add('completed');
       } else if (elements.length) {
         elements.forEach((elem) => elem.classList.add('oscillation'));
         elements[elements.length - 1].addEventListener('animationend', () => {

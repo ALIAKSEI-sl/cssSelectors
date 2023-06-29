@@ -1,7 +1,7 @@
 import { LevelNumber } from '../enum/levelNumber';
 import { Syntax } from '../enum/syntax';
 import { IParams } from '../models/params.model';
-import { getElement } from './helpers';
+import { getElement, resetParams } from './helpers';
 import installLevel from './installLevel';
 
 const burger = getElement('.burger-menu');
@@ -20,12 +20,16 @@ export default function addLevelList(params: IParams) {
       ? '<span class="tick completed"></span>'
       : '<span class="tick"></span>';
 
+    const hint = params.hint[i]
+      ? '<span class="use-hint">a hint was used</span>'
+      : '<span class="use-hint"></span>';
+
     const level = `<span class="level-number">${i}</span>`;
     const li = document.createElement('li');
     li.classList.add('level-item');
     li.dataset.levelNumber = String(i);
     const key = LevelNumber[i] as keyof typeof Syntax;
-    const content = `${tick} ${level} ${Syntax[key]}`;
+    const content = `${tick} ${level} ${Syntax[key]} ${hint}`;
     li.addEventListener('click', () => {
       params.level = Number(li.dataset.levelNumber);
       installLevel(params);
@@ -41,26 +45,16 @@ export default function addLevelList(params: IParams) {
   reset.classList.add('reset-level');
   reset.textContent = 'Reset Progress';
   reset.addEventListener('click', () => {
-    params.level = 1;
-    params.completion = [
-      null,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-    ];
+    resetParams(params);
     burger?.classList.remove('open');
     menuBtn?.classList.remove('open');
     ul.querySelectorAll('span').forEach((span) => {
-      span.classList.remove('completed');
+      if (span.classList.contains('completed')) {
+        span.classList.remove('completed');
+      } else if (span.classList.contains('use-hint')) {
+        span.textContent = '';
+      }
+      // span.classList.remove('completed');
     });
     installLevel(params);
   });
