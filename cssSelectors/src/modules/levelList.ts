@@ -1,67 +1,76 @@
 import { LevelNumber } from '../enum/levelNumber';
 import { Syntax } from '../enum/syntax';
 import { IParams } from '../models/params.model';
-import { getElement, resetParams } from './helpers';
-import installLevel from './installLevel';
+import eventListener from '../observers/eventListener';
+import helper from './helper';
 
-const burger = getElement('.burger-menu');
-const menuBtn = getElement('.level-menu-wrapper');
+class LevelList {
+  private burger: HTMLDivElement;
 
-export default function addLevelList(params: IParams) {
-  const fragment = document.createDocumentFragment();
-  const header = document.createElement('h2');
-  header.classList.add('level-text');
-  header.textContent = 'Choose a level';
-  fragment.appendChild(header);
-
-  const ul = document.createElement('ul');
-  for (let i = 1; i <= 12; i++) {
-    const tick = params.completion[i]
-      ? '<span class="tick completed"></span>'
-      : '<span class="tick"></span>';
-
-    const hint = params.hint[i]
-      ? '<span class="use-hint">a hint was used</span>'
-      : '<span class="use-hint"></span>';
-
-    const level = `<span class="level-number">${i}</span>`;
-    const li = document.createElement('li');
-    li.classList.add('level-item');
-    li.dataset.levelNumber = String(i);
-    const key = LevelNumber[i] as keyof typeof Syntax;
-    const content = `${tick} ${level} ${Syntax[key]} ${hint}`;
-    li.addEventListener('click', () => {
-      params.level = Number(li.dataset.levelNumber);
-      installLevel(params);
-      burger?.classList.remove('open');
-      menuBtn?.classList.remove('open');
-    });
-    li.innerHTML = content;
-    ul.append(li);
+  constructor() {
+    this.burger = helper.getElement('.burger-menu') as HTMLDivElement;
   }
 
-  fragment.appendChild(ul);
-  const reset = document.createElement('button');
-  reset.classList.add('reset-level');
-  reset.textContent = 'Reset Progress';
-  reset.addEventListener('click', () => {
-    resetParams(params);
-    burger?.classList.remove('open');
-    menuBtn?.classList.remove('open');
-    ul.querySelectorAll('span').forEach((span) => {
-      if (span.classList.contains('completed')) {
-        span.classList.remove('completed');
-      } else if (span.classList.contains('use-hint')) {
-        span.textContent = '';
-      }
-      // span.classList.remove('completed');
-    });
-    installLevel(params);
-  });
-  fragment.appendChild(reset);
+  public add(params: IParams) {
+    const fragment = document.createDocumentFragment();
+    const header = helper.createElement('h2', 'level-text', 'Choose a level');
+    fragment.appendChild(header);
 
-  if (burger) {
-    burger.innerHTML = '';
-    burger.appendChild(fragment);
+    const ul = this.createElemUl(params);
+    fragment.appendChild(ul);
+
+    const resetBtm = helper.createElement(
+      'button',
+      'reset-level',
+      'Reset Progress'
+    ) as HTMLButtonElement;
+
+    eventListener.listenResetBtn(params, resetBtm, ul);
+    fragment.appendChild(resetBtm);
+    this.burger.appendChild(fragment);
+  }
+
+  private createElemUl(params: IParams) {
+    const ul = helper.createElement('ul', null, null) as HTMLUListElement;
+
+    for (let i = 1; i <= 12; i++) {
+      const tick = params.completion[i]
+        ? '<span class="tick completed"></span>'
+        : '<span class="tick"></span>';
+      const hint = params.hint[i]
+        ? '<span class="use-hint">(a hint was used)</span>'
+        : '<span class="use-hint"></span>';
+      const levelNumber = `<span class="level-number">${i}</span>`;
+
+      const key = LevelNumber[i] as keyof typeof Syntax;
+      const content = `${tick} ${levelNumber} ${Syntax[key]} ${hint}`;
+
+      const li = helper.createElement(
+        'li',
+        'level-item',
+        null
+      ) as HTMLLIElement;
+      li.dataset.levelNumber = String(i);
+      li.innerHTML = content;
+
+      eventListener.switchLevel(params, li);
+      ul.append(li);
+    }
+    return ul;
+  }
+
+  public markingLevelWithHint(params: IParams) {
+    const currentLevelItem = helper.getElement(
+      `[data-level-number="${params.level}"]`
+    ) as HTMLLIElement;
+
+    Array.from(currentLevelItem.children).forEach((span) => {
+      if (span.classList.contains('tick')) span.classList.add('completed');
+      if (span.classList.contains('use-hint') && params.hint[params.level]) {
+        span.textContent = '(a hint was used)';
+      }
+    });
   }
 }
+
+export default new LevelList();
