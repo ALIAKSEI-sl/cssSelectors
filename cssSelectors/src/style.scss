@@ -59,6 +59,7 @@ body {
   flex: 1;
   height: 100vh;
   overflow-y: scroll;
+  overflow-x: visible;
 }
 
 .block-logo {
@@ -120,8 +121,7 @@ body {
   background-color: #ac741c;
   box-shadow: 0 0 10px rgba(104, 101, 101, 0.5);
 
-  .outlined,
-  .outlined * {
+  .outlined {
     outline: 5px solid rgba(233, 217, 217, 0.5);
   }
 }
