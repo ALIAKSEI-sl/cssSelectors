@@ -1,0 +1,231 @@
+@media (min-width: 500px) and (max-width: 1000px) {
+  .sidebar-menu {
+    padding: 10px;
+    flex: 0 0 30%;
+    font-size: 12px;
+  }
+
+  .sidebar-wrapper h2 {
+    padding-top: 25px;
+    text-align: center;
+  }
+
+  .level-text {
+    font-size: 16px;
+  }
+
+  .tick {
+    width: 10px;
+    height: 18px;
+  }
+
+  .previous-level,
+  .next-level {
+    height: 20px;
+    width: 20px;
+  }
+
+  .previous-level::after {
+    height: 12px;
+    width: 12px;
+    top: 5px;
+  }
+
+  .next-level::after {
+    height: 12px;
+    width: 12px;
+    top: 5px;
+  }
+
+  .level-menu-wrapper {
+    width: 20px;
+    height: 20px;
+    padding: 3px 0;
+    margin-left: 10px;
+  }
+
+  .level-menu {
+    top: 6px;
+  }
+
+  .level-menu::before {
+    top: -6px;
+  }
+
+  .level-menu::after {
+    top: 6px;
+  }
+
+  .hint strong {
+    padding: 1px 3px 1px 3px;
+  }
+
+  .syntax {
+    padding: 2px 4px;
+    font-size: 14px;
+    border-bottom: solid 1px rgba(255, 255, 255, 0.1);
+  }
+  .examples {
+    font-size: 14px;
+  }
+
+  .examples * {
+    line-height: 130%;
+    padding: 1px 3px 1px 3px;
+  }
+
+  .burger-menu {
+    padding: 5px;
+    padding-top: 40px;
+  }
+
+  .burger-menu.open {
+    .tick {
+      width: 8px;
+      height: 16px;
+    }
+  }
+  .level-number {
+    min-width: 18px;
+  }
+
+  .reset-level {
+    padding: 5px 0;
+    font-size: 12px;
+  }
+
+  .level-item {
+    padding: 2px 0;
+  }
+
+  .block-logo {
+    .logo-header {
+      font-size: 20px;
+      line-height: 28px;
+    }
+
+    .logo-img {
+      width: 30px;
+      height: 30px;
+      background-size: 30px;
+    }
+  }
+  .header-case {
+    font-size: 24px;
+  }
+
+  .header-help {
+    font-size: 18px;
+  }
+
+  my-plate {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    border-radius: 50px;
+  }
+
+  my-plate::before {
+    content: '';
+
+    left: calc(50% - 18px);
+    top: calc(50% - 20px);
+    height: 35px;
+    width: 35px;
+    border-radius: 60px;
+  }
+
+  my-plate#elegant::after {
+    left: calc(50% - 23px);
+    top: calc(50% - 21px);
+    height: 34px;
+    width: 37px;
+    border-radius: 30px;
+    border: solid 5px #009ff2;
+  }
+
+  my-bento {
+    width: 50px;
+    height: 50px;
+  }
+
+  my-apple,
+  my-orange {
+    width: 30px;
+    border-radius: 50px;
+    border-style: solid;
+    border-width: 1px 2px 7px 2px;
+    height: 30px;
+  }
+
+  my-apple.small,
+  my-orange.small {
+    width: 15px;
+    height: 15px;
+    border-radius: 50px;
+    border-width: 1px 2px 4px 2px;
+  }
+
+  my-pickle {
+    width: 12px;
+    height: 30px;
+    border-radius: 15px;
+    border: solid 2px #025a18;
+    border-width: 1px 1px 4px 1px;
+  }
+
+  .tablecloth {
+    gap: 15px;
+    padding: 10px 20px;
+  }
+
+  .ide-section {
+    font-size: 12px;
+  }
+
+  .editor-numeration {
+    padding: 2px;
+  }
+
+  .window-editor {
+    padding: 1px 0 0 24px;
+  }
+
+  .markup div {
+    padding-left: 10px;
+  }
+
+  .input-selector {
+    width: 95%;
+  }
+
+  .button-enter {
+    top: 20px;
+    right: 2px;
+    line-height: 100%;
+    border: solid 1px #999;
+    padding: 1px 3px 1px 3px;
+    border-width: 1px 1px 3px 1px;
+  }
+
+  .window-editor {
+    min-height: 366px;
+  }
+
+  .footer-container {
+    padding: 10px 20px;
+    font-size: 16px;
+
+    .rsschool-link {
+      width: 60px;
+      height: 30px;
+      background-size: 60px 30px;
+    }
+
+    .github-link {
+      width: 30px;
+      height: 30px;
+      background-size: 30px;
+    }
+  }
+}

@@ -91,6 +91,7 @@ body {
 .header-help {
   text-align: center;
   cursor: pointer;
+  padding: 10px 0 20px 0;
 }
 
 .table-wrapper {
@@ -101,58 +102,47 @@ body {
 
 .table-body {
   position: relative;
-  // // width: 500px;
-  // // height: 0;
-  // position: relative;
-  // padding-bottom: 130px;
-  // background-color: #ac741c;
-  // transform: perspective(200px) rotateX(10deg);
-  // box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  white-space: nowrap;
+}
+
+.perspective {
+  transform: perspective(200px) rotateX(10deg);
+  position: relative;
 }
 
 .tablecloth {
-  // position: absolute;
-  // top: calc(50% - (110px / 2));
   display: flex;
   align-items: center;
-  // justify-content: center;
-  // align-content: center;
   gap: 20px;
   margin: 0 auto;
   position: relative;
-  padding: 30px 30px;
+  padding: 20px 30px;
   background-color: #ac741c;
-  transform: perspective(200px) rotateX(10deg);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  // transform: translate3d(0, 0, 50px) rotateX(10deg);
-  // perspective: 200px;
-  // transform: rotateX(10deg);
+  box-shadow: 0 0 10px rgba(104, 101, 101, 0.5);
 
   .outlined,
   .outlined * {
-    outline: 5px solid #f00;
+    outline: 5px solid rgba(233, 217, 217, 0.5);
   }
 }
 
-// .table-edge {
-//   // width: 522px;
-//   height: 0;
-//   padding-bottom: 15px;
-//   background-color: #ac741c;
-//   transform: perspective(200px) rotateX(10deg);
-//   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-// }
+.table-edge {
+  display: flex;
+  justify-content: space-between;
+  height: 0;
+  padding-bottom: 15px;
+  background-color: #ac741c;
+  transform: perspective(400px) rotateX(-40deg) scale(0.99);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  position: relative;
+  top: -4px;
 
-// .table-edge {
-//   display: flex;
-//   justify-content: space-between;
-
-//   .table-leg {
-//     // width: 300px;
-//     height: 25px;
-//     background-color: #ac741c;
-//   }
-// }
+  .table-leg {
+    width: 50px;
+    height: 25px;
+    background-color: #ac741c;
+  }
+}
 
 .shake {
   animation: shake 1s infinite;
@@ -172,9 +162,17 @@ body {
 }
 
 .sidebar-menu {
+  padding: 20px;
   flex: 0 0 370px;
   height: 100vh;
   position: relative;
+  background-color: #221e18;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.sidebar-menu.no-scroll {
+  overflow-y: hidden;
 }
 
 .ide-header {
@@ -290,17 +288,13 @@ body {
   }
 }
 
-.sidebar-menu {
-  padding: 20px;
-  overflow: hidden;
-}
-
 .sidebar-wrapper {
   position: relative;
 }
 
 .level-text {
   font-size: 25px;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .tick {
@@ -417,6 +411,52 @@ body {
   }
 }
 
+.selector-name {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 600;
+}
+
+.title {
+  padding: 15px 0;
+}
+
+.syntax {
+  display: inline-block;
+  padding: 4px 8px;
+  font-size: 24px;
+  background: rgba(255, 255, 255, 0.05);
+  border-bottom: solid 2px rgba(255, 255, 255, 0.1);
+}
+
+.hint {
+  padding: 10px 0 30px 0;
+  line-height: 170%;
+}
+
+.hint strong {
+  color: #aaa;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 3px 6px 3px 6px;
+}
+
+.examples-header {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 600;
+}
+
+.examples {
+  padding-top: 30px;
+}
+
+.examples * {
+  line-height: 170%;
+  color: #aaa;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 3px 6px 3px 6px;
+}
+
 .markup {
   .outlined,
   .outlined * {
@@ -442,12 +482,28 @@ body {
 
 .burger-menu {
   position: absolute;
+  padding: 20px;
   width: 100%;
   height: 100%;
   left: 100%;
   top: 0;
   background-color: #1b1813;
   transition: left 0.5s ease;
+  overflow-y: scroll;
+}
+
+.level-item {
+  padding: 5px 0;
+}
+
+.level-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.level-number {
+  display: inline-block;
+  min-width: 24px;
+  text-align: center;
 }
 
 .burger-menu.open {
@@ -494,4 +550,39 @@ body {
   font-size: 20px;
   cursor: pointer;
   border-radius: 5px;
+}
+
+.level-progress {
+  width: 100%;
+  margin: 10px 0 20px 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.progress {
+  background: rgba(255, 255, 255, 0.2);
+  height: 2px;
+  position: relative;
+}
+
+.progress::after {
+  content: '';
+  position: absolute;
+  right: -6px;
+  top: -3px;
+  height: 4px;
+  width: 4px;
+  border: solid 2px #2a231d;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+}
+
+.reset-level {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.6);
+  background-color: transparent;
+  cursor: pointer;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  margin-top: 30px;
 }

@@ -24,6 +24,8 @@ class Level {
 
   private tick: HTMLSpanElement;
 
+  private progress: HTMLDivElement;
+
   constructor() {
     this.headerCase = helper.getElement('.header-case') as HTMLHeadingElement;
     this.levelText = helper.getElement('.level-text') as HTMLSpanElement;
@@ -37,6 +39,7 @@ class Level {
     this.tableCloth = helper.getElement('.tablecloth') as HTMLDivElement;
     this.htmlIde = helper.getElement('.markup') as HTMLElement;
     this.tick = helper.getElement('.tick') as HTMLSpanElement;
+    this.progress = helper.getElement('.progress') as HTMLDivElement;
   }
 
   public change(params: IParams) {
@@ -54,6 +57,7 @@ class Level {
       this.examples[1].innerHTML = data.exampleSecond;
       this.tableCloth.innerHTML = data.tableInner;
       this.htmlIde.innerHTML = data.ideInner;
+      this.progress.style.width = `${(100 / 12) * params.level}%`;
 
       if (params.completion[params.level]) {
         this.tick.classList.add('completed');

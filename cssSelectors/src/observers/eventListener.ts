@@ -25,6 +25,8 @@ class EventListener {
 
   private buttonReset: HTMLButtonElement;
 
+  private sidebarMenu: HTMLElement;
+
   constructor() {
     this.input = helper.getElement('.input-selector') as HTMLInputElement;
     this.enterBtn = helper.getElement('.button-enter') as HTMLDivElement;
@@ -36,6 +38,7 @@ class EventListener {
     this.ide = helper.getElement('.ide-container') as HTMLDivElement;
     this.buttonOk = helper.getElement('.button-ok') as HTMLButtonElement;
     this.buttonReset = helper.getElement('.button-reset') as HTMLButtonElement;
+    this.sidebarMenu = helper.getElement('.sidebar-menu') as HTMLElement;
   }
 
   public listen(params: IParams) {
@@ -96,6 +99,7 @@ class EventListener {
   private toggleBurgerMenu(params: IParams) {
     this.burger.classList.toggle('open');
     this.menuBtn.classList.toggle('open');
+    this.sidebarMenu.classList.toggle('no-scroll');
 
     const currentLevelItem = helper.getElement(
       `[data-level-number="${params.level}"]`
@@ -105,6 +109,7 @@ class EventListener {
 
   private showHint(params: IParams) {
     let count = 0;
+    this.input.value = '';
     const typing = setInterval(() => {
       this.input.value += params.answer.charAt(count);
       count++;
