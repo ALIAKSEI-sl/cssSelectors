@@ -89,6 +89,9 @@ body {
 }
 
 .header-help {
+  display: block;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.3);
   font-size: 16px;
   text-align: center;
   cursor: pointer;
@@ -101,6 +104,12 @@ body {
 
 .header-help:hover {
   text-decoration: underline;
+}
+
+.header-help:disabled {
+  cursor: auto;
+  opacity: 0.5;
+  text-decoration: none;
 }
 
 .table-wrapper {

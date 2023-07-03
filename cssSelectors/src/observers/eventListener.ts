@@ -18,7 +18,7 @@ class EventListener {
 
   private burger: HTMLDivElement;
 
-  private help: HTMLHeadingElement;
+  private help: HTMLButtonElement;
 
   private ide: HTMLDivElement;
 
@@ -35,7 +35,7 @@ class EventListener {
     this.next = helper.getElement('.next-level') as HTMLAnchorElement;
     this.menuBtn = helper.getElement('.level-menu-wrapper') as HTMLDivElement;
     this.burger = helper.getElement('.burger-menu') as HTMLDivElement;
-    this.help = helper.getElement('.header-help') as HTMLHeadingElement;
+    this.help = helper.getElement('.header-help') as HTMLButtonElement;
     this.ide = helper.getElement('.ide-container') as HTMLDivElement;
     this.buttonOk = helper.getElement('.button-ok') as HTMLButtonElement;
     this.buttonReset = helper.getElement('.button-reset') as HTMLButtonElement;
@@ -112,14 +112,10 @@ class EventListener {
     if (this.burger.classList.contains('open')) {
       levelList.markCurrentLevel(params);
     }
-
-    // const currentLevelItem = helper.getElement(
-    //   `[data-level-number="${params.level}"]`
-    // ) as HTMLLIElement;
-    // currentLevelItem.classList.toggle('current');
   }
 
   private showHint(params: IParams) {
+    this.help.disabled = true;
     let count = 0;
     this.input.value = '';
     const typing = setInterval(() => {
@@ -127,6 +123,7 @@ class EventListener {
       count++;
       if (count === params.answer.length) {
         clearInterval(typing);
+        this.help.disabled = false;
       }
     }, 400);
     params.hint[params.level] = true;
