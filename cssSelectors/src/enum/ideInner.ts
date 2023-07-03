@@ -53,7 +53,7 @@ export const enum IdeInner {
       &lt;my-plate /&gt;
     </div>
     <div>
-      &lt;my-plate id="elegant" /&gt;
+      &lt;my-plate /&gt;
     </div>
     <div>
       &lt;my-bento /&gt;

@@ -19,7 +19,7 @@ export const enum TableInner {
     <my-bento></my-bento>
     <my-plate id=elegant class=shake></my-plate>
     <my-plate></my-plate>
-    <my-plate id=elegant class=shake></my-plate>
+    <my-plate></my-plate>
     <my-bento></my-bento>
   `,
   four = `
