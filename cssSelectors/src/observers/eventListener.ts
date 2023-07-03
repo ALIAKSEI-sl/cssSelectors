@@ -1,6 +1,7 @@
 import { IParams } from '../models/params.model';
 import helper from '../modules/helper';
 import level from '../modules/level';
+import levelList from '../modules/levelList';
 import decorator from './decorator';
 import resultValidator from './resultValidator';
 
@@ -108,10 +109,14 @@ class EventListener {
     this.menuBtn.classList.toggle('open');
     this.sidebarMenu.classList.toggle('no-scroll');
 
-    const currentLevelItem = helper.getElement(
-      `[data-level-number="${params.level}"]`
-    ) as HTMLLIElement;
-    currentLevelItem.classList.toggle('current');
+    if (this.burger.classList.contains('open')) {
+      levelList.markCurrentLevel(params);
+    }
+
+    // const currentLevelItem = helper.getElement(
+    //   `[data-level-number="${params.level}"]`
+    // ) as HTMLLIElement;
+    // currentLevelItem.classList.toggle('current');
   }
 
   private showHint(params: IParams) {
@@ -140,6 +145,7 @@ class EventListener {
       params.completion[params.level] = true;
       params.level = params.level === 12 ? 1 : params.level + 1;
       level.change(params);
+      levelList.markCurrentLevel(params);
     });
   }
 

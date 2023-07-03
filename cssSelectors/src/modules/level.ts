@@ -3,28 +3,28 @@ import decorator from '../observers/decorator';
 import level from '../store/levelStore';
 import helper from './helper';
 
-class Level {
-  private headerCase: HTMLHeadingElement;
+export class Level {
+  public headerCase: HTMLHeadingElement;
 
-  private levelText: HTMLSpanElement;
+  public levelText: HTMLSpanElement;
 
-  private selectorName: HTMLParagraphElement;
+  public selectorName: HTMLParagraphElement;
 
-  private title: HTMLParagraphElement;
+  public title: HTMLParagraphElement;
 
-  private syntax: HTMLParagraphElement;
+  public syntax: HTMLParagraphElement;
 
-  private hint: HTMLParagraphElement;
+  public hint: HTMLParagraphElement;
 
-  private examples: HTMLParagraphElement[];
+  public examples: HTMLParagraphElement[];
 
-  private tableCloth: HTMLDivElement;
+  public tableCloth: HTMLDivElement;
 
-  private htmlIde: HTMLElement;
+  public htmlIde: HTMLElement;
 
-  private tick: HTMLSpanElement;
+  public tick: HTMLSpanElement;
 
-  private progress: HTMLDivElement;
+  public progress: HTMLDivElement;
 
   constructor() {
     this.headerCase = helper.getElement('.header-case') as HTMLHeadingElement;

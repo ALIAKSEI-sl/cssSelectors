@@ -40,7 +40,6 @@ $blackColor: rgba(0, 0, 0, 0.35);
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  // font-family: 'Roboto', sans-serif;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -65,13 +64,13 @@ body {
 .block-logo {
   display: flex;
   gap: 10px;
-  padding: 10px 20px;
+  padding: 5px 20px;
 
   .logo-img {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     background-image: url(./assets/css.png);
-    background-size: 40px;
+    background-size: 30px;
   }
 
   .logo-img:hover {
@@ -79,20 +78,29 @@ body {
   }
 
   .logo-header {
-    line-height: 32px;
+    font-size: 20px;
+    line-height: 30px;
   }
 }
 
 .header-case {
-  font-size: 40px;
+  font-size: 20px;
   text-align: center;
-  padding: 20px 0;
 }
 
 .header-help {
+  font-size: 16px;
   text-align: center;
   cursor: pointer;
-  padding: 10px 0 20px 0;
+  padding: 5px;
+  margin: 5px auto;
+  width: 200px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.header-help:hover {
+  text-decoration: underline;
 }
 
 .table-wrapper {
@@ -114,10 +122,10 @@ body {
 .tablecloth {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
   margin: 0 auto;
   position: relative;
-  padding: 20px 30px;
+  padding: 10px;
   background-color: #ac741c;
   box-shadow: 0 0 10px rgba(104, 101, 101, 0.5);
 
@@ -149,7 +157,7 @@ body {
 }
 
 .ide-section {
-  padding: 80px 30px 40px 30px;
+  padding: 25px 30px 0 30px;
 }
 
 .ide-container {
@@ -187,7 +195,7 @@ body {
 .header-editor {
   display: flex;
   width: 50%;
-  padding: 10px 15px;
+  padding: 5px 15px;
   justify-content: space-between;
   background: rgba(0, 0, 0, 0.15);
 }
@@ -203,8 +211,8 @@ body {
 .window-editor {
   position: relative;
   padding: 10px 10px 10px 46px;
-  min-height: 496px;
-  line-height: 150%;
+  min-height: 400px;
+  line-height: 120%;
   width: 50%;
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -270,7 +278,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 40px;
+  padding: 5px 40px;
   font-size: 20px;
 
   .rsschool-link {

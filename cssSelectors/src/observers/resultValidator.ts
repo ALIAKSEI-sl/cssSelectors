@@ -23,16 +23,18 @@ class ResultValidator {
         const elements = helper.getAllElementOnTable(value, this.tableCloth);
         if (value === params.answer) {
           this.validResult(params, elements);
+          input.classList.add('blink');
+          input.value = '';
         } else {
           this.invalidResult(elements, ide);
         }
       } catch {
         ide.classList.add('oscillation');
       }
+    } else {
+      input.classList.add('blink');
+      input.value = '';
     }
-
-    input.classList.add('blink');
-    input.value = '';
   }
 
   private isValueNumber(params: IParams, value: string) {

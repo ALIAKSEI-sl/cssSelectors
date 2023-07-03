@@ -1,16 +1,16 @@
 import helper from '../modules/helper';
 
 class Decorator {
-  tableBody: HTMLDivElement;
+  private tableBody: HTMLDivElement;
 
-  popup: HTMLDivElement;
+  private popup: HTMLDivElement;
 
   constructor() {
     this.tableBody = helper.getElement('.table-body') as HTMLDivElement;
     this.popup = helper.getElement('.popup-wrapper') as HTMLDivElement;
   }
 
-  highlightElements() {
+  public highlightElements() {
     const codeElems = helper.getAllElement('.markup *') as HTMLElement[];
     const tableElems = helper.getAllElement('.tablecloth *') as HTMLElement[];
 
@@ -45,7 +45,7 @@ class Decorator {
     });
   }
 
-  addTitle(element: HTMLElement) {
+  private addTitle(element: HTMLElement) {
     const positionTable = this.tableBody.getBoundingClientRect().left;
     const positionElem = element.getBoundingClientRect().left;
 
@@ -66,16 +66,16 @@ class Decorator {
     this.tableBody.appendChild(div);
   }
 
-  removeTitle() {
+  private removeTitle() {
     const elem = this.tableBody.querySelector('.element-title');
     elem?.remove();
   }
 
-  showPopUp() {
+  public showPopUp() {
     this.popup.classList.add('active');
   }
 
-  hidePopUp() {
+  public hidePopUp() {
     this.popup.classList.remove('active');
   }
 }

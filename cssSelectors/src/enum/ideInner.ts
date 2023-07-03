@@ -1,6 +1,6 @@
 export const enum IdeInner {
   one = `
-    &lt;div class="table"&gt
+    &lt;div class="table"&gt;
     <div>
       &lt;my-bento /&gt;
     </div>
@@ -16,7 +16,7 @@ export const enum IdeInner {
     <div>
       &lt;my-bento /&gt;
     </div>
-    &lt;/div&gt
+    &lt;/div&gt;
   `,
   two = `
     &lt;div class="table"&gt
@@ -281,7 +281,7 @@ export const enum IdeInner {
       &lt;/my-plate&gt;
     </div>
     <div>
-      &lt;my-plate id="elegant"&gt;
+      &lt;my-plate&gt;
         <div>
           &lt;my-pickle /&gt;
         </div>

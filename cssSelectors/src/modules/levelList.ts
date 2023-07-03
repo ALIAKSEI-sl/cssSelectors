@@ -71,6 +71,16 @@ class LevelList {
       }
     });
   }
+
+  public markCurrentLevel(params: IParams) {
+    Array.from(this.burger.querySelectorAll('li')).forEach((li) => {
+      if (li.dataset.levelNumber === String(params.level)) {
+        li.classList.add('current');
+      } else {
+        li.classList.remove('current');
+      }
+    });
+  }
 }
 
 export default new LevelList();

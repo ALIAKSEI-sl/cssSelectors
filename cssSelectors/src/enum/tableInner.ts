@@ -1,9 +1,9 @@
 export const enum TableInner {
   one = `
     <my-bento></my-bento>
-    <my-plate class=shake></my-plate>
+    <my-plate class="shake"></my-plate>
     <my-apple></my-apple>
-    <my-plate class=shake></my-plate>
+    <my-plate class="shake"></my-plate>
     <my-bento></my-bento>
   `,
   two = `
