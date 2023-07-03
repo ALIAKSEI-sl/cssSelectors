@@ -60,6 +60,13 @@ class EventListener {
       if (event.key === 'Enter') this.checkAnswer(params);
     });
 
+    this.input.addEventListener('input', (event: Event) => {
+      const input = event.target as HTMLInputElement;
+      if (input.value) {
+        if (input.classList.contains('blink')) input.classList.remove('blink');
+      } else input.classList.add('blink');
+    });
+
     this.enterBtn.addEventListener('animationend', () => {
       this.enterBtn.classList.remove('pressing');
     });

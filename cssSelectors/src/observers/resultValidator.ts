@@ -30,6 +30,8 @@ class ResultValidator {
         ide.classList.add('oscillation');
       }
     }
+
+    input.classList.add('blink');
     input.value = '';
   }
 

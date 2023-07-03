@@ -2,20 +2,39 @@ export const enum IdeInner {
   one = `
     &lt;div class="table"&gt
     <div>
-      &lt;my-plate /&gt;
+      &lt;my-bento /&gt;
     </div>
     <div>
       &lt;my-plate /&gt;
+    </div>
+    <div>
+      &lt;my-apple /&gt;
+    </div>
+    <div>
+      &lt;my-plate /&gt;
+    </div>
+    <div>
+      &lt;my-bento /&gt;
     </div>
     &lt;/div&gt
   `,
   two = `
     &lt;div class="table"&gt
     <div>
+      &lt;my-orange /&gt;
+    </div>
+    <div>
       &lt;my-bento /&gt;
     </div>
     <div>
-      &lt;my-plate /&gt;
+      &lt;my-plate&gt;
+        <div>
+          &lt;my-apple /&gt;
+        </div>
+      &lt;/my-plate&gt;
+    </div>
+    <div>
+      &lt;my-orange /&gt;
     </div>
     <div>
       &lt;my-bento /&gt;
@@ -25,10 +44,16 @@ export const enum IdeInner {
   three = `
     &lt;div class="table"&gt
     <div>
+      &lt;my-bento /&gt;
+    </div>
+    <div>
       &lt;my-plate id="elegant" /&gt;
     </div>
     <div>
       &lt;my-plate /&gt;
+    </div>
+    <div>
+      &lt;my-plate id="elegant" /&gt;
     </div>
     <div>
       &lt;my-bento /&gt;
@@ -48,12 +73,19 @@ export const enum IdeInner {
       &lt;/my-plate&gt;
     </div>
     <div>
-    &lt;my-apple /&gt;
+      &lt;my-plate&gt;
+        <div>
+          &lt;my-orange /&gt;
+        </div>
+      &lt;/my-plate&gt;
     </div>
     &lt;/div&gt
   `,
   five = `
     &lt;div class="table"&gt
+    <div>
+      &lt;my-apple /&gt;
+    </div>
     <div>
       &lt;my-bento&gt;
       <div>
@@ -93,7 +125,10 @@ export const enum IdeInner {
       &lt;/my-plate&gt;
     </div>
     <div>
-      &lt;my-apple /&gt;
+      &lt;my-plate /&gt;
+    </div>
+    <div>
+      &lt;my-apple class="small"/&gt;
     </div>
     &lt;/div&gt
   `,
@@ -126,6 +161,9 @@ export const enum IdeInner {
         </div>
       &lt;/my-plate&gt;
     </div>
+    <div>
+      &lt;my-apple class="small"/&gt;
+    </div>
     &lt;/div&gt
   `,
   eight = `
@@ -148,11 +186,11 @@ export const enum IdeInner {
       &lt;/my-bento&gt;
     </div>
     <div>
-      &lt;my-bento&gt;
+      &lt;my-plate&gt;
         <div>
           &lt;my-apple class="small"/&gt;
         </div>
-      &lt;/my-bento&gt;
+      &lt;/my-plate&gt;
     </div>
     <div>
       &lt;my-bento&gt;
@@ -169,7 +207,7 @@ export const enum IdeInner {
       &lt;my-pickle /&gt;
     </div>
     <div>
-      &lt;my-pickle /&gt;
+      &lt;my-apple /&gt;
     </div>
     <div>
       &lt;my-plate&gt;
@@ -193,7 +231,7 @@ export const enum IdeInner {
       &lt;/my-plate&gt;
     </div>
     <div>
-      &lt;my-pickle /&gt;
+      &lt;my-apple /&gt;
     </div>
     <div>
       &lt;my-pickle /&gt;
@@ -225,10 +263,16 @@ export const enum IdeInner {
     <div>
       &lt;my-plate id="elegant"/&gt;
     </div>
+    <div>
+      &lt;my-pickle /&gt;
+    </div>
     &lt;/div&gt
   `,
   eleven = `
     &lt;div class="table"&gt
+    <div>
+      &lt;my-pickle /&gt;
+    </div>
     <div>
       &lt;my-plate id="elegant"&gt;
         <div>
@@ -253,6 +297,13 @@ export const enum IdeInner {
         </div>
       &lt;/my-plate&gt;
     </div>
+    <div>
+      &lt;my-bento id="elegant"&gt;
+        <div>
+          &lt;my-orange class="small"/&gt;
+        </div>
+      &lt;/my-bento&gt;
+    </div>
     &lt;/div&gt
   `,
   twelve = `
@@ -260,7 +311,7 @@ export const enum IdeInner {
     <div>
       &lt;my-bento&gt;
         <div>
-          &lt;my-apple class="small"/&gt;
+          &lt;my-pickle/&gt;
         </div>
       &lt;/my-bento&gt;
     </div>
@@ -268,7 +319,7 @@ export const enum IdeInner {
       &lt;my-plate /&gt;
     </div>
     <div>
-      &lt;my-apple /&gt;
+      &lt;my-apple class="small" /&gt;
     </div>
     <div>
       &lt;my-plate /&gt;
@@ -277,10 +328,10 @@ export const enum IdeInner {
       &lt;my-apple /&gt;
     </div>
     <div>
-      &lt;my-apple class="small"/&gt;
+      &lt;my-apple class="small" /&gt;
     </div>
     <div>
-      &lt;my-apple class="small"/&gt;
+      &lt;my-pickle /&gt;
     </div>
     &lt;/div&gt
   `,
