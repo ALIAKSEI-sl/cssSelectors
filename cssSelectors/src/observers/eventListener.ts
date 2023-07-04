@@ -64,8 +64,14 @@ class EventListener {
     this.input.addEventListener('input', (event: Event) => {
       const input = event.target as HTMLInputElement;
       if (input.value) {
-        if (input.classList.contains('blink')) input.classList.remove('blink');
-      } else input.classList.add('blink');
+        if (input.classList.contains('blink')) {
+          input.classList.remove('blink');
+          input.style.color = 'red';
+        }
+      } else {
+        input.classList.add('blink');
+        input.style.color = 'black';
+      }
     });
 
     this.enterBtn.addEventListener('animationend', () => {
