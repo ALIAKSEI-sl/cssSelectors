@@ -21,7 +21,8 @@ class ResultValidator {
     if (!isNumber) {
       try {
         const elements = helper.getAllElementOnTable(value, this.tableCloth);
-        if (value === params.answer) {
+        const isUserSelectorCorrect = this.checkUserSelector(value);
+        if (value === params.answer || isUserSelectorCorrect) {
           this.validResult(params, elements);
           input.classList.add('blink');
           input.value = '';
@@ -68,6 +69,19 @@ class ResultValidator {
     } else {
       ide.classList.add('oscillation');
     }
+  }
+
+  private checkUserSelector(value: string) {
+    const shakeElements = helper.getAllElementOnTable(
+      '.shake',
+      this.tableCloth
+    );
+    const userElements = helper.getAllElementOnTable(value, this.tableCloth);
+
+    const count = userElements.reduce((ac, elem) => {
+      return elem.classList.contains('shake') ? ++ac : ac;
+    }, 0);
+    return count === shakeElements.length;
   }
 }
 
