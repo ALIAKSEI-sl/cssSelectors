@@ -28,7 +28,8 @@ class EventListener {
 
   private sidebarMenu: HTMLElement;
 
-  constructor() {
+  constructor(private levelsCount: number) {
+    this.levelsCount = levelsCount;
     this.input = helper.getElement('.input-selector') as HTMLInputElement;
     this.enterBtn = helper.getElement('.button-enter') as HTMLDivElement;
     this.previous = helper.getElement('.previous-level') as HTMLAnchorElement;
@@ -63,15 +64,8 @@ class EventListener {
 
     this.input.addEventListener('input', (event: Event) => {
       const input = event.target as HTMLInputElement;
-      if (input.value) {
-        if (input.classList.contains('blink')) {
-          input.classList.remove('blink');
-          input.style.color = 'red';
-        }
-      } else {
-        input.classList.add('blink');
-        input.style.color = 'black';
-      }
+      const hasValue = input.value !== '';
+      input.classList.toggle('blink', !hasValue);
     });
 
     this.enterBtn.addEventListener('animationend', () => {
@@ -145,8 +139,9 @@ class EventListener {
 
   public nextLevel(params: IParams, element: Element) {
     element.addEventListener('animationend', () => {
+      const lastLevel = this.levelsCount;
       params.completion[params.level] = true;
-      params.level = params.level === 12 ? 1 : params.level + 1;
+      params.level = params.level === lastLevel ? 1 : params.level + 1;
       level.change(params);
       levelList.markCurrentLevel(params);
     });
@@ -177,4 +172,4 @@ class EventListener {
   }
 }
 
-export default new EventListener();
+export default new EventListener(12);

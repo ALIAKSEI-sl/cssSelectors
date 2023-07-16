@@ -7,8 +7,9 @@ import helper from './helper';
 class LevelList {
   private burger: HTMLDivElement;
 
-  constructor() {
+  constructor(private levelsCount: number) {
     this.burger = helper.getElement('.burger-menu') as HTMLDivElement;
+    this.levelsCount = levelsCount;
   }
 
   public add(params: IParams) {
@@ -33,13 +34,13 @@ class LevelList {
   private createElemUl(params: IParams) {
     const ul = helper.createElement('ul', null, null) as HTMLUListElement;
 
-    for (let i = 1; i <= 12; i++) {
-      const tick = params.completion[i]
-        ? '<span class="tick completed"></span>'
-        : '<span class="tick"></span>';
-      const hint = params.hint[i]
-        ? '<span class="use-hint">(a hint was used)</span>'
-        : '<span class="use-hint"></span>';
+    for (let i = 1; i <= this.levelsCount; i++) {
+      const tick = `<span class="tick ${
+        params.completion[i] ? 'completed' : ''
+      }"></span>`;
+      const hint = `<span class="use-hint">${
+        params.hint[i] ? '(a hint was used)' : ''
+      }</span>`;
       const levelNumber = `<span class="level-number">${i}</span>`;
 
       const key = LevelNumber[i] as keyof typeof Syntax;
@@ -83,4 +84,4 @@ class LevelList {
   }
 }
 
-export default new LevelList();
+export default new LevelList(12);

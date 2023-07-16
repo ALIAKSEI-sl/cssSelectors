@@ -8,20 +8,16 @@
 }
 
 @keyframes oscillation {
-  0% {
+  0%,
+  50%,
+  100% {
     transform: translateX(0);
   }
   25% {
     transform: translateX(-10px);
   }
-  50% {
-    transform: translateX(0);
-  }
   75% {
     transform: translateX(10px);
-  }
-  10% {
-    transform: translateX(0);
   }
 }
 
@@ -42,7 +38,6 @@ my-plate {
   height: 100px;
   border-bottom: solid 5px #ddd;
   background: white;
-  border-radius: 100px;
   border-radius: 100px;
   box-shadow: 0px 8px 0px rgba(0, 0, 0, 0.1);
   position: relative;
@@ -91,7 +86,7 @@ my-bento {
 my-bento::before {
   content: '';
   position: absolute;
-  width: calc(100%);
+  width: 100%;
   top: 0;
   left: 0;
   border: solid 10px rgba(0, 0, 0, 0.1);
@@ -155,16 +150,12 @@ my-pickle {
 }
 
 .tablecloth .disappear {
-  animation-name: disappear;
-  animation-iteration-count: 1;
-  animation-duration: 0.6s;
+  animation: disappear 1 0.6s;
 }
 
 .tablecloth .oscillation,
 .ide-container.oscillation {
-  animation-name: oscillation;
-  animation-iteration-count: 5;
-  animation-duration: 0.1s;
+  animation: oscillation 5 0.6s;
 }
 
 .level-item {

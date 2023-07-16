@@ -26,7 +26,8 @@ export class Level {
 
   public progress: HTMLDivElement;
 
-  constructor() {
+  constructor(private levelsCount: number) {
+    this.levelsCount = levelsCount;
     this.headerCase = helper.getElement('.header-case') as HTMLHeadingElement;
     this.levelText = helper.getElement('.level-text') as HTMLSpanElement;
     this.selectorName = helper.getElement(
@@ -44,20 +45,32 @@ export class Level {
 
   public change(params: IParams) {
     if (params.completion.includes(false)) {
-      const data = level.getLevel(params.level);
-      params.answer = data.answer;
+      const {
+        case: header,
+        level: currentLevel,
+        selectorName,
+        title,
+        syntax,
+        hint,
+        exampleFirst,
+        exampleSecond,
+        tableInner,
+        ideInner,
+        answer,
+      } = level.getLevel(params.level);
+      params.answer = answer;
 
-      this.headerCase.textContent = data.case;
-      this.levelText.textContent = data.level;
-      this.selectorName.textContent = data.selectorName;
-      this.title.textContent = data.title;
-      this.syntax.textContent = data.syntax;
-      this.hint.innerHTML = data.hint;
-      this.examples[0].innerHTML = data.exampleFirst;
-      this.examples[1].innerHTML = data.exampleSecond;
-      this.tableCloth.innerHTML = data.tableInner;
-      this.htmlIde.innerHTML = data.ideInner;
-      this.progress.style.width = `${(100 / 12) * params.level}%`;
+      this.headerCase.textContent = header;
+      this.levelText.textContent = currentLevel;
+      this.selectorName.textContent = selectorName;
+      this.title.textContent = title;
+      this.syntax.textContent = syntax;
+      this.hint.innerHTML = hint;
+      this.examples[0].innerHTML = exampleFirst;
+      this.examples[1].innerHTML = exampleSecond;
+      this.tableCloth.innerHTML = tableInner;
+      this.htmlIde.innerHTML = ideInner;
+      this.progress.style.width = `${(100 / this.levelsCount) * params.level}%`;
 
       if (params.completion[params.level]) {
         this.tick.classList.add('completed');
@@ -73,4 +86,4 @@ export class Level {
   }
 }
 
-export default new Level();
+export default new Level(12);
